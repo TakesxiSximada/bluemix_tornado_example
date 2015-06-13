@@ -59,6 +59,10 @@ batoran.Batoran.prototype = {
             },
             success: function (d){
                 console.log('FINISH BUY.');
+                $('#reload').remove();
+                $('#buy').remove();
+
+                alert('購入が完了しました。ありがとうございました。');
             },
         });
     },

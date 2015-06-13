@@ -42,7 +42,7 @@ class TokenHandler(tornado.web.RequestHandler):
 class PaymentHandler(tornado.web.RequestHandler):
     def post(self):
         data = json.loads(self.request.body.decode())
-        total_amount = str(data['amount'])
+        total_amount = str(int(data['amount']))
         tax_amount = str(0)
         token = braintree.ClientToken.generate({'customer_id': ''})
         txn = braintree.Transaction(braintree.Environment.Sandbox, attributes={'token': token, 'amount': total_amount, 'tax_amount': tax_amount})

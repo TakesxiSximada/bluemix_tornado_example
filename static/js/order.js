@@ -1,3 +1,19 @@
+function paypal() {
+    var order = loadData("order");
+    var length = order.length;
+    var total = 0;
+    for(var i = 0; i < length; i++) {
+        var data  = order[i];
+        var price = data.price;
+        total += price;
+    }
+
+
+    var bt = new batoran.Batoran();
+    bt.buy(total);
+    return false;
+}
+
 function setOrder() {
   var parent = $("#orderlist");
   var total  = 0;
