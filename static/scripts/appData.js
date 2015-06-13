@@ -28,12 +28,14 @@ var AppData = function() {
 	];
     
 	_announcements = [
-		{ title: "Holiday Drinks Are Here", description: "Enjoy your favorite holiday drinks, like Pumpkin Spice Lattes.", url: "images/holiday.png" },
-		{ title: "Register & Get Free Drinks", description: "Register any Jitterz card and start earning rewards like free drinks. Sign-up now.", url: "images/rewards.png" },
-		{ title: "Cheers to Another Year", description: "Raise a cup of bold and spicy Jitterz Anniversary Blend.", url: "images/cheers.png" },
-		{ title: "Hot Drinks Anytime", description: "Find and enjoy our, hot drinks anytime.", url: "images/hot-drink.png" },
-		{ title: "Friend and Love", description: "Get more for your friends.Get Love.", url: "images/love-friend.png" },
-		{ title: "Wide range of choice", description: "Raise a cup of bold and spicy Jitterz Anniversary Blend.", url: "images/best-coffee.png" }
+		{ title: "Pasta01", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta02", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta03", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta04", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta05", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta06", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta07", description: "￥1,200", url: "images/holiday.png" },
+		{ title: "Pasta08", description: "￥1,200", url: "images/holiday.png" }
 	];
     
 	_private = {

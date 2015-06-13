@@ -5,6 +5,7 @@
     	AddCardViewModel,
     	CardsViewModelBase,
     	SingleCardViewModel,
+      OrderViewModel,
     	RewardsViewModel;
         
 	AddCardViewModel = kendo.data.ObservableObject.extend({
@@ -272,6 +273,12 @@
             
 		}
 	});
+
+  OrderViewModel = kendo.observable({
+    load: function(data) {
+      console.log("888")
+    }
+  });
 	
     storesListViewModel = kendo.observable({ 
         stores : [], 
@@ -286,6 +293,7 @@
 		rewardsViewModel: new RewardsViewModel(),
 		addCardViewModel: new AddCardViewModel(),
 		announcementViewModel: announcementViewModel,
+    OrderViewModel: OrderViewModel,
 		cardsViewModel: cardsViewModel,
         storesListViewModel: storesListViewModel
 	});
