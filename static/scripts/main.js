@@ -208,6 +208,11 @@ function onDeviceReady() {
 			.bind("select", function(e) {
 				_private.toggleStoreView(e.sender.selectedIndex);
 			});
+			$("#payment").bind("click", function(e) {
+                var amount = 2;
+                var bt = new batoran.Batoran();
+                bt.buy(amount);
+			});
 		},
 
 		storesShow: function() {
