@@ -45,12 +45,14 @@ batoran.Batoran.prototype = {
         }
         console.log("OK");
     },
-    buy: function (event) {
+    buy: function (amount) {
         console.log('START BUY.');
+
         $.ajax({
-            url: 'http://batoran.mybluemix.net/payment/buy',
-            type: 'GET',
-            data: '',
+            url: '/payment/buy',
+            type: 'POST',
+            data: JSON.stringify({'amount': amount}),
+            contentType: 'application/json',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader('Access-Control-Allow-Origin', 'ALLOW');
 

@@ -1,10 +1,17 @@
 # -*- coding: utf-8 -*-
+import six
 import os
 import sys
+import json
 import braintree
 import tornado.web
 import tornado.ioloop
 from tornado.web import StaticFileHandler
+
+if six.PY3:
+    from urllib.parse import urlparse
+else:
+    from urlparse import urlparse
 
 merchant = os.getenv('merchant', '')
 public_key = os.getenv('public_key', '')
@@ -33,13 +40,14 @@ class TokenHandler(tornado.web.RequestHandler):
 
 
 class PaymentHandler(tornado.web.RequestHandler):
-    def get(self):
-        total_amount = str(3)
-        tax_amount = str(1)
+    def post(self):
+        data = json.loads(self.request.body.decode())
+        total_amount = str(data['amount'])
+        tax_amount = str(0)
         token = braintree.ClientToken.generate({'customer_id': ''})
         txn = braintree.Transaction(braintree.Environment.Sandbox, attributes={'token': token, 'amount': total_amount, 'tax_amount': tax_amount})
-        txn.sale({'amount': total_amount, 'payment_method_nonce': 'fake-paypal-future-nonce'})
-        self.write('OK: {}'.format(total_amount))
+        res = txn.sale({'amount': total_amount, 'payment_method_nonce': 'fake-paypal-future-nonce'})
+        self.write('OK: {}'.format(res.transaction.amount))
 
 
 def main():
