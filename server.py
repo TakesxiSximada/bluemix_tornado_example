@@ -4,6 +4,7 @@ import sys
 import braintree
 import tornado.web
 import tornado.ioloop
+from tornado.web import StaticFileHandler
 
 merchant = os.getenv('merchant', '')
 public_key = os.getenv('public_key', '')
@@ -43,12 +44,14 @@ class PaymentHandler(tornado.web.RequestHandler):
 
 def main():
     port = int(os.getenv('VCAP_APP_PORT', 8000))
-
+    here = os.path.abspath(os.path.dirname(__file__))
+    static_dir = os.path.join(here, 'static')
     application = tornado.web.Application([
         (r"/ping", PingPongHandler),
         (r"/payment/token", TokenHandler),
         (r"/payment/buy", PaymentHandler),
-    ])
+        (r"/static/(.*)", StaticFileHandler, {"path": static_dir}),
+        ])
     application.listen(port)
     tornado.ioloop.IOLoop.current().start()
 
