@@ -28,14 +28,14 @@ var AppData = function() {
 	];
     
 	_announcements = [
-		{ title: "Pasta01", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta02", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta03", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta04", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta05", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta06", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta07", description: "￥1,200", url: "images/holiday.png" },
-		{ title: "Pasta08", description: "￥1,200", url: "images/holiday.png" }
+		{ title: "イタリアントマトとモッツァレラチーズ", description: "￥790", url: "images/001.png" },
+		{ title: "ナスとベーコンのトマトソース", description: "￥790", url: "images/002.png" },
+		{ title: "トマトミートソース", description: "￥850", url: "images/003.png" },
+		{ title: "ペスカトーレ", description: "￥1,100", url: "images/004.png" },
+		{ title: "ヤリイカの明太子クリームソース", description: "￥790", url: "images/005.png" },
+		{ title: "スモークサーモンといくらの明太子クリーム", description: "￥940", url: "images/006.png" },
+		{ title: "フレッシュほうれん草とベーコン", description: "￥640", url: "images/007.png" },
+		{ title: "ボンゴレビアンコ", description: "￥940", url: "images/008.png" }
 	];
     
 	_private = {
