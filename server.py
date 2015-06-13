@@ -53,7 +53,7 @@ class PaymentHandler(tornado.web.RequestHandler):
 def main():
     port = os.getenv('VCAP_APP_PORT', None)  # for bluemix
     if not port:
-        port = os.getenv('VCAP_APP_PORT', None)  # for heroku
+        port = os.getenv('PORT', None)  # for heroku
     if not port:
         port = 8000
     port = int(port)
