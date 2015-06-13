@@ -11,7 +11,7 @@ from tornado.web import StaticFileHandler
 if six.PY3:
     from urllib.parse import urlparse
 else:
-    from urlparse import urlparse
+    from urlparse import urlparse  # noqa
 
 merchant = os.getenv('merchant', '')
 public_key = os.getenv('public_key', '')
@@ -51,7 +51,13 @@ class PaymentHandler(tornado.web.RequestHandler):
 
 
 def main():
-    port = int(os.getenv('VCAP_APP_PORT', 8000))
+    port = os.getenv('VCAP_APP_PORT', None)  # for bluemix
+    if not port:
+        port = os.getenv('VCAP_APP_PORT', None)  # for heroku
+    if not port:
+        port = 8000
+    port = int(port)
+
     here = os.path.abspath(os.path.dirname(__file__))
     static_dir = os.path.join(here, 'static')
     application = tornado.web.Application([
