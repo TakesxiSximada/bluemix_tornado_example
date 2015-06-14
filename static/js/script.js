@@ -79,10 +79,17 @@
 
       p.find(".price").html('<del style="margin-right:15px;">' + price + "</del><span>￥" + separate(discount) + "</span>");
 
-      setTimeout(function(){
+      var timer = setTimeout(function(){
+
+        if(!p.find("del").length) {
+          clearTimeout(timer);
+          return false;
+        }
+
         var reset = p.find("del").text();
         p.find(".price").html('<span>' + reset + '</span>');
         p.removeClass("chance").find(".chance").remove();
+
       }, 10000);
 
       return false;
