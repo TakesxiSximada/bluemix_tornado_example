@@ -17,10 +17,18 @@ function paypal() {
 function setOrder() {
   var parent = $("#orderlist");
   var total  = 0;
-  var order  = (loadData("order")) ? loadData("order") : [{
-    "name"  : "注文はありません。",
-    "price" : total
-  }];
+
+  var order = loadData("order");
+  if (!order) {
+      order = [{
+          "]name"  : "注文はありません。",
+          "price" : total,
+      }];
+      $('#buy').css({'visibility': 'hidden'});
+  }else{
+      $('#buy').css({'visibility': 'visible'});
+  };
+
   var length = order.length;
   var html   = "";
 
