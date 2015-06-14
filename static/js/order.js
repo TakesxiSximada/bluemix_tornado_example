@@ -24,7 +24,7 @@ function setOrder() {
           "]name"  : "注文はありません。",
           "price" : total,
       }];
-      $('#buy').css({'visibility': 'hidden'});
+      $('#buy').hide();
   }else{
       $('#buy').css({'visibility': 'visible'});
   };
