@@ -8,13 +8,17 @@
             <div id="logo"><img src="images/img_logo.png" alt=""></div>
         </div>
     </header>
-    <p id="reload" onclick="setOrder();     var result = $.getJSON('/get_token', function(result) {
+    <p id="reload" onclick="setOrder();
+    if ($('#buyinput').css('visibility') == 'hidden'){
+var result = $.getJSON('/get_token', function(result) {
         braintree.setup(result.clientToken, 'dropin', {
             container: 'myDropIn'
 
         });
     });
-    $('#buyinput').css({visibility: 'visible'});
+
+        $('#buyinput').css({visibility: 'visible'});
+    }
 ">注文履歴を更新する</p>
     <ul id="orderlist" data-role="listview" data-style="inset">
     </ul>
