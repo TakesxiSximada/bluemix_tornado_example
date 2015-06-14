@@ -20,14 +20,23 @@
 		<script type="text/javascript" src="js/batoran.js"></script>
 		<!-- Default Stylesheet -->
 		<link rel="stylesheet" href="styles/main.css" />
+    <style>
+      #comp {
+        background:url(images/img_finish_txt.png) center center no-repeat;
+        background-size: 75% auto;
+      }
+      #finish p {
+        font-style: 14px;
+        text-align: center;
+      }
+    </style>
 	</head>
-	<body>
+	<body id="comp">
 		<!-- Page Layout -->
 		<div data-role="layout" data-id="jitterz-default">
 			<header data-role="header" data-id="jitterz-default-header">
 				<div data-role="navbar">
 					<span data-role="view-title"></span>
-					<img src="images/img_logo.png" alt="">
 				</div>
 			</header>
 			<div data-role="footer" id="footertab">
@@ -43,14 +52,7 @@
 
 		<!-- Home page -->
 		<div id="home">
-<div id="order">
-    <header data-role="header">
-        <div data-role="navbar">
-            <span data-role="view-title"></span>
-            <div id="logo"><img src="images/img_logo.png" alt=""></div>
-        </div>
-    </header>
-    <p>ありがとうございました。</p>
+<div id="finish">
 </div>
 		</div>
 
