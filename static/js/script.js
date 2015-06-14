@@ -4,6 +4,7 @@
     });
 
     function setMenu() {
+        localStorage.removeItem("order");
         var target = $(".j-listview-item-content");
 
         target.on("click", showMenu);
@@ -22,7 +23,7 @@
           }
 
           orderTotal.push(order);
-          
+
           if(confirm(name + '(' +price + ')を注文しますか？')) {
             alert("注文が完了しました。");
             localStorage.setItem("order", JSON.stringify(orderTotal));
@@ -35,10 +36,10 @@
 
             }
           }
-          
+
           return false;
         }
-        
+
         return false;
     }
 
