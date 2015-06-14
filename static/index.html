@@ -63,13 +63,6 @@
         <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
 
 		<script>
-    var result = $.getJSON('/get_token', function(result) {
-        braintree.setup(result.clientToken, 'dropin', {
-            container: 'myDropIn'
-
-        });
-
-});
     var app = new kendo.mobile.Application(document.body, { transition: "slide", layout: "jitterz-default" });
 
 		</script>

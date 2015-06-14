@@ -373,3 +373,7 @@
     #total span {
         font-weight:bold;
     }
+
+#buy {
+    visibility: hidden;
+}
