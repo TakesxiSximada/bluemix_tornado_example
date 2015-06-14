@@ -14,7 +14,7 @@
 
         });
     });
-    $('#buy').css({visibility: 'visible'});
+    $('#buyinput').css({visibility: 'visible'});
 ">注文履歴を更新する</p>
     <ul id="orderlist" data-role="listview" data-style="inset">
     </ul>
@@ -23,7 +23,7 @@
       <form action="/pay" method="post">
         <div id="myDropIn"></div>
         <br>
-        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Order Now!">
+        <input id="buyinput" class="btn btn-primary btn-lg btn-block" type="submit" value="Order Now!">
 
       </form>
     </p>
