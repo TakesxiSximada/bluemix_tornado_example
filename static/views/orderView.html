@@ -12,6 +12,11 @@
     <ul id="orderlist" data-role="listview" data-style="inset">
     </ul>
     <p id="total"></p>
-    <!-- <p id="buy" onclick="paypal(); var bt = new batoran.Batoran(); var amount = $('#total span').text(); bt.buy(amount);">買う</p> -->
-    <p id="buy" onclick="paypal();">買う</p>
+    <p id="buy" onclick="_paypal();">
+      <form action="/pay" method="post">
+        <div id="myDropIn"></div>
+        <br>
+        <input class="btn btn-primary btn-lg btn-block" type="submit" value="Order Now!">
+      </form>
+    </p>
 </div>

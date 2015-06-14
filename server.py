@@ -35,19 +35,29 @@ class PingPongHandler(tornado.web.RequestHandler):
 
 
 class TokenHandler(tornado.web.RequestHandler):
+
     def get(self):
-        self.write('SUCCESS!!')
+        token = braintree.ClientToken.generate({'customer_id': ''})
+        buf = json.dumps({'clientToken': token})
+        self.write(buf)
+
+    def post(self):
+        token = braintree.ClientToken.generate({'customer_id': ''})  #21433943
+        buf = json.dumps({'clientToken': token})
+        self.write(buf)
 
 
 class PaymentHandler(tornado.web.RequestHandler):
     def post(self):
-        data = json.loads(self.request.body.decode())
-        total_amount = str(int(data['amount']))
+        # data = json.loads(self.request.body.decode())
+        # total_amount = str(int(data['amount']))
+        total_amount = str(10)
         tax_amount = str(0)
-        token = braintree.ClientToken.generate({'customer_id': ''})
-        txn = braintree.Transaction(braintree.Environment.Sandbox, attributes={'token': token, 'amount': total_amount, 'tax_amount': tax_amount})
+        # token = braintree.ClientToken.generate({'customer_id': ''})
+        txn = braintree.Transaction(braintree.Environment.Sandbox, attributes={'amount': total_amount, 'tax_amount': tax_amount})
         res = txn.sale({'amount': total_amount, 'payment_method_nonce': 'fake-paypal-future-nonce'})
-        self.write('OK: {}'.format(res.transaction.amount))
+        self.redirect('/static/complete.html')
+        # self.write('OK: {}'.format(res.transaction.amount))
 
 
 def main():
@@ -62,8 +72,8 @@ def main():
     static_dir = os.path.join(here, 'static')
     application = tornado.web.Application([
         (r"/ping", PingPongHandler),
-        (r"/payment/token", TokenHandler),
-        (r"/payment/buy", PaymentHandler),
+        (r"/get_token", TokenHandler),
+        (r"/pay", PaymentHandler),
         (r"/static/(.*)", StaticFileHandler, {"path": static_dir}),
         ])
     application.listen(port)
