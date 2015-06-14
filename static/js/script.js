@@ -35,14 +35,7 @@
     }
 
     function setFavorite() {
-      var $this = $(this);
-
-      if($this.hasClass("favorite")) {
-        $this.removeClass("favorite");
-      } else {
-        $this.addClass("favorite");
-      }
-
+      $(this).toggleClass("favorite");
       return false;
     }
 

@@ -269,11 +269,11 @@
     margin-top: 8px;
 }
 .j-listview-item.announcement > .j-listview-item-content > span:last-of-type {
-    font-size: 0.75em;
+    font-size: 0.85em;
 }
 .j-listview-item.announcement > img {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 50px;
     float: left;
     border-radius: 0px !important;
 }
@@ -327,11 +327,20 @@
     background: url("../images/icon_fav_off.png") left top no-repeat;
     text-indent: -9999px;
     color: #fff;
-    margin: 0;
+    margin: 0 10px;
     display: block;
 }
 .j-listview-item-content p.favorite {
     background: url("../images/icon_fav_on.png") left top no-repeat;
+}
+
+.j-listview-item-content span {
+    text-indent: 10px;
+    line-height: 1;
+}
+
+.j-listview-item-content span.name {
+    padding-top: 3px;
 }
 
 #orderlist {
